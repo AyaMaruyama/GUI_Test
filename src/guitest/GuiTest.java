@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javafx.scene.paint.Color;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,19 +20,30 @@ public class GuiTest extends JFrame{
     private JTextField jTextField;
     private JButton jButtonSetTextToLabel;
     public GuiTest() {
+        initComponents();
+        super.setLocationRelativeTo(null);
+
+    }
+
+    private void initComponents() {
         super.setPreferredSize(new Dimension(480, 290));
         super.setMaximumSize(new Dimension(480, 290));
         super.setMinimumSize(new Dimension(480, 290));
-        super.getContentPane().setLayout(new BorderLayout());
+        //super.getContentPane().setLayout(new BorderLayout());
         
         jLabelTitle = new JLabel("capybara ty", SwingConstants.CENTER);
         jLabelTitle.setFont(new java.awt.Font("Tahoma", 0, 24));
         jLabelTitle.setPreferredSize(new Dimension(480,27));
         jLabelTitle.setMaximumSize(new Dimension(480,54));
+        jLabelTitle.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        //jLabelTitle.setAlignmentY(CENTER_ALIGNMENT);
         
-        JPanel panelTitle = new JPanel();
-        panelTitle.setPreferredSize(new Dimension(480,54));
-        panelTitle.add(jLabelTitle);
+        
+//        JPanel panelTitle = new JPanel();
+//        panelTitle.setPreferredSize(new Dimension(480,54));
+//        panelTitle.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+//        panelTitle.setAlignmentY(CENTER_ALIGNMENT);
+//        panelTitle.add(jLabelTitle, "push, align center");
                 
         jTextField = new JTextField();
         jTextField.setPreferredSize(new Dimension(200, 27));
@@ -53,7 +66,7 @@ public class GuiTest extends JFrame{
         panelButton.add(jButtonSetTextToLabel);
         jPanelContent = new JPanel();
         jPanelContent.setLayout(new BoxLayout(jPanelContent, BoxLayout.Y_AXIS));
-        jPanelContent.add(panelTitle);
+        jPanelContent.add(jLabelTitle);
         jPanelContent.add(panelTextField);
         jPanelContent.add(panelButton);
         
